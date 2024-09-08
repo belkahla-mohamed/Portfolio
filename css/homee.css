@@ -1,0 +1,637 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+}
+
+body {
+    background-color: rgb(219, 219, 219);
+    width: 100%;
+    height: 100vh;
+}
+
+.container {
+    display: grid;
+    grid-template-columns: 8% 1fr;
+    gap: 10px;
+    width: 100%;
+    height: 100%;
+}
+
+
+/* left slide */
+
+.container .left-slide {
+    background: rgb(0, 0, 255);
+    border: 3px solid #FFF;
+    border-radius: 1.5em;
+    width: 100px;
+    height: 100%;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    position: fixed;
+    z-index: 999;
+    left: 0;
+}
+
+.sections {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    height: 100%;
+}
+
+.sections a {
+    text-decoration: none;
+    position: relative;
+}
+
+.sections a .material-symbols-outlined {
+    font-variation-settings:
+        'FILL' 0,
+        'wght' 400,
+        'GRAD' 0,
+        'opsz' 24;
+    font-size: 50px;
+    color: rgb(34, 34, 112);
+    transition: .2s ease-in;
+}
+
+.sections a.active .material-symbols-outlined {
+    font-variation-settings:
+        'FILL' 0,
+        'wght' 400,
+        'GRAD' 0,
+        'opsz' 24;
+    color: white;
+    scale: 1.1;
+
+}
+
+.sections .home_op.active::after {
+    content: 'Home';
+    position: absolute;
+    left: 0px;
+    top: 50px;
+    text-align: center;
+    font-size: large;
+    font-family: Arial, Helvetica, sans-serif;
+    color: #fff;
+
+}
+
+.sections .about_op.active::after {
+    content: 'About me';
+    position: absolute;
+    left: 0px;
+    top: 50px;
+    text-align: center;
+    width: 100%;
+    font-size: small;
+    font-family: Arial, Helvetica, sans-serif;
+    color: #fff;
+
+}
+
+.sections .skills_op.active::after {
+    content: 'Skills';
+    position: absolute;
+    left: 0px;
+    top: 50px;
+    text-align: center;
+    width: 100%;
+    font-size: large;
+    font-family: Arial, Helvetica, sans-serif;
+    color: #fff;
+
+}
+
+.sections .contact_op.active::after {
+    content: 'Contact';
+    position: absolute;
+    left: 0px;
+    top: 50px;
+    width: 100%;
+    font-size: medium;
+    font-family: Arial, Helvetica, sans-serif;
+    color: #fff;
+
+}
+
+/* left slide */
+
+
+/* main */
+
+.profile {
+    width: 50%;
+    height: auto;
+    color: #FFF;
+    position: fixed;
+    z-index: 999;
+    display: flex;
+    justify-content: right;
+    transform: translate(50%, 20%);
+    margin: 2em;
+}
+
+.profile .profile_infos {
+    background-color: rgb(0, 0, 255);
+    border-radius: 4px;
+    display: flex;
+    flex-direction: column;
+    width: auto;
+    height: auto;
+    padding: 2em;
+    position: relative;
+}
+
+@property --angle {
+    content: 'angle';
+    initial-value: 0deg;
+
+}
+
+.profile .profile_infos::after,
+.profile .profile_infos::before {
+    --angle: 0deg;
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: #fff;
+    left: -3px;
+    z-index: -1;
+    border-radius: 4px;
+    top: -3px;
+    padding: 3px;
+    transform: translate(0%, 0%);
+    animation: 3s angle infinite linear;
+}
+
+
+/* @keyframes angle{
+    from{
+        --angle : 0deg;
+    }
+    to{
+        --angle: 360deg
+    }
+} */
+
+
+.profile .profile_infos .picture {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+}
+
+.profile .profile_infos .picture img {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    margin-bottom: 1.5em;
+    border: 3px solid #fff;
+    cursor: pointer;
+    box-shadow: 0 0 0 10px 10px transparent;
+    transition: .3s ease;
+}
+
+
+.profile .profile_infos .picture img:hover{
+    scale: 1.1;
+    box-shadow: 0px 0px 20px 0px black;
+}
+
+.profile .profile_infos .infos {
+    text-align: center;
+}
+
+.profile .profile_infos .infos h2 {
+    font-family: Arial, Helvetica, sans-serif;
+    margin-bottom: 0.5em;
+}
+
+.profile .profile_infos .infos p {
+    color: rgb(150, 150, 150);
+    margin-bottom: 2em;
+}
+
+.profile .profile_infos .infos a {
+    color: rgb(14, 14, 122);
+    text-decoration: none;
+    cursor: pointer;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    background-color: #fff;
+    transition: .1s ease-in-out;
+    letter-spacing: 2px;
+    padding: 12px 15px;
+    border-radius: 1.2em;
+}
+
+.profile .profile_infos .infos a:hover {
+    color: #fff;
+    background-color: rgb(14, 14, 122);
+}
+
+.links {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    margin-top: 1.5em;
+}
+
+
+/* home */
+.container .main {
+    position: absolute;
+    width: auto;
+    display: flex;
+    flex-direction: column;
+    left: 115px;
+    width: 91%;
+}
+
+.container .main .home {
+    background: rgb(0, 0, 255);
+    border: 3px solid #fff;
+    border-bottom: none;
+    border-radius: 1.5em 1.5em 0 0;
+    height: 43em;
+    width: 100%;
+    padding: 1em;
+    position: relative;
+}
+
+.presentation {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 50%;
+    height: 100%;
+}
+
+.presentation .text{
+    display: flex;
+    width: 100%;
+    justify-content: left;
+    flex-direction: column;
+}
+
+.presentation .text h4 {
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+.presentation .text h1 {
+    text-align: left;
+    font-family: Arial, Helvetica, sans-serif;
+    letter-spacing: 2px;
+    font-size: 3em;
+    margin-bottom: 0.3em;
+    background-image: linear-gradient(90deg, transparent);
+    background-clip: text;
+    -webkit-text-stroke-color: transparent;
+    -webkit-text-stroke-width: calc(1em/16);
+    -webkit-background-clip: text;
+    color: #fff;
+
+}
+
+.presentation .text h1 span {
+    color: black;
+}
+
+
+.presentation .text p {
+    letter-spacing: 1px;
+    font-size: 1.6em;
+    font-family: Arial, Helvetica, sans-serif;
+    color: #fff;
+    width: 100%;
+    text-align: left;
+}
+
+.presentation .text p a {
+    text-decoration: none;
+    color: #fff;
+}
+
+
+
+.presentation .options {
+    margin-top: 2em;
+    display: flex;
+    justify-content: left;
+    width: 100%;
+}
+
+.presentation .options a {
+
+    background: #fff;
+    padding: 12px;
+    color: rgb(14, 14, 122);
+    text-decoration: none;
+    text-align: center;
+    letter-spacing: 3px;
+    border-radius: 1em;
+    transition: .1s ease-in;
+    font-size: 18px;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+}
+
+.presentation .options a:hover {
+    border: none;
+    color: #fff;
+    background: rgb(14, 14, 122);
+}
+
+/* home */
+
+/* about me */
+.container .main{
+    left: 105px;
+    width: calc(100% - 105px);
+}
+.container .main .about {
+    background: #fff;
+    border: 3px solid rgb(0, 0, 255);
+    border-bottom: none;
+    border-top: none;
+    height: 43em;
+    width: 100%;
+    padding: 1em;
+}
+
+.about .title {
+    text-align: center;
+    color: rgb(0, 0, 255);
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 50px;
+    letter-spacing: 2px;
+}
+
+
+.about .about_me {
+    display: flex;
+    width: 50%;
+    height: 100%;
+    justify-content: center;
+    align-items: center;
+
+}
+
+.about .about_me .personality {
+    width: 100%;
+    background-color: rgb(0, 0, 255);
+    padding: 1em;
+    color: #fff;
+}
+
+.about .about_me .personality .info {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    margin-top: 1em;
+    border-bottom: 1px #fff solid;
+
+}
+
+.about .about_me .personality .info h3 {
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.about .about_me .personality .info p {
+    color: #fff;
+    font-size: 15px;
+    font-weight: 300;
+    font-family: Arial, Helvetica, sans-serif;
+    letter-spacing: 1px;
+}
+
+.about .about_me .personality .info .counter {
+    font-size: 30px;
+    text-align: center;
+}
+
+
+/* about me */
+
+
+/* skills */
+
+.container .main .skills {
+    background: rgb(0, 0, 255);
+    border: 3px solid #fff;
+    border-bottom: none;
+    border-top: none;
+    height: 43em;
+    width: 100%;
+    padding: 1em;
+    position: relative;
+}
+
+.skills .title {
+    text-align: center;
+    color: #fff;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 50px;
+    letter-spacing: 2px;
+}
+
+.skills .counter_skills {
+    width: 50%;
+    height: 100%;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+}
+
+.skills .counter_skills h2 {
+    text-align: center;
+    color: #fff;
+    margin: 1em 0;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    letter-spacing: 1px;
+}
+
+.skills .counter_skills .counters {
+    height: auto;
+    background-color: #fff;
+    border: 3px solid rgb(0, 0, 255);
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    padding: 1em;
+    border-radius: 2em;
+}
+
+
+.skills .counter_skills .counters .counter {
+    border: 2px dotted rgb(0, 0, 255);
+    border-left: none;
+    border-right: none;
+    height: 100%;
+    padding: 0.7em;
+    border-top-left-radius: 2em;
+    border-top-right-radius: 2em;
+}
+
+.skills .counter_skills .counters .counter h1 {
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    text-align: center;
+    font-size: xx-large;
+    cursor: pointer;
+}
+
+
+
+.skills .counter_skills .counters .counter h3 {
+    font-family: Arial, Helvetica, sans-serif;
+    text-align: center;
+    cursor: pointer;
+}
+
+
+
+
+
+/* skills */
+
+
+/* contact */
+
+.main .contact {
+    height: auto;
+    background: #fff;
+    border: 3px solid rgb(0, 0, 255);
+    border-top: none;
+    
+    width: 100%;
+    border-bottom-left-radius: 1.5em;
+    border-bottom-right-radius: 1.5em;
+}
+
+.main .contact .title {
+    text-align: center;
+    color: rgb(0, 0, 255);
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 50px;
+    letter-spacing: 2px;
+}
+
+.main .contact .contact_me{
+    display: flex;
+    width: 50%;
+    height: 100%;
+    margin-left: 2em;
+    margin-bottom: 2em;
+}
+
+.contact_me .send_me h1{
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 3em;
+}
+
+.contact_me .send_me h1 span{
+    color: rgb(0, 0, 255);
+    font-size: 3.5em;
+    font-family: 'Times New Roman', Times, serif;
+}
+
+.contact_me .send_me .form{
+    width: 100%;
+    background-color: rgb(0, 0, 255);
+    padding: 1em;
+    border-radius: 1em;
+}
+
+.contact_me .send_me .form .input{
+    display: flex;
+    margin-bottom: 1em;
+}
+
+.contact_me .send_me .form .input label{
+    color: #fff;
+    font-size: 50px;
+    background-color: black;
+    vertical-align: middle;
+    height: 100%;
+    padding: 3px;
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
+}
+
+.contact_me .send_me .form .input input{
+    width: 100%;
+    background-color: #fff;
+    outline: none;
+    border: 2px solid black;
+    border-top-right-radius: 2em;
+    border-bottom-right-radius: 2em;
+    padding: 0 2em;
+    color: gray;
+    font-size: larger;
+    font-family: Arial, Helvetica, sans-serif;
+}
+.contact_me .send_me .form .input textarea{
+    width: 100%;
+    outline: none;
+    background-color: #fff;
+    border: 2px solid black;
+    border-top-right-radius: 2em;
+    border-bottom-right-radius: 2em;
+    border-bottom-left-radius: 2em;
+    padding: 0 2em;
+    padding-top: 1em;
+    color: gray;
+    font-size: larger;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+
+.contact_me .send_me .form .btn{
+    display: flex;
+    width: 100%;
+    justify-content: center;
+}
+
+.contact_me .send_me .form .btn div{
+    background-color: black;
+    padding: 1em 2em;
+    border-radius: 2em;
+    transition: .3s ease;
+}
+
+.contact_me .send_me .form .btn div:hover{
+    background-color: #fff;
+
+}
+
+.contact_me .send_me .form .btn div span{
+    color: #fff;
+    font-size: 15px;
+    cursor: default;
+}
+
+.contact_me .send_me .form .btn div:hover span{
+    color: black;
+}
+
+
+.contact_me .send_me .form .btn input{
+    border: none;
+    background-color: transparent;
+    font-family: Arial, Helvetica, sans-serif;
+    color: #FFF;
+    font-size: 20px;
+}
+
+.contact_me .send_me .form .btn div:hover input{
+    color: black;
+}
+/* contact */
+/* main */
